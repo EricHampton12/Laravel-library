@@ -13,32 +13,44 @@
                     </div>
                     <button type="submit" class="btn btn-dark mb-2 ml-3">Search</button>
                 </form>
-                <form>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-12">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col"><h4>Title</h4></th>
-                                        <th scope="col"><h4>Author</h4></th>
-                                        <th scope="col"><h4>Check Out</h4></th>
+                
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-12">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">
+                                                <h4>Title</h4>
+                                            </th>
+                                            <th scope="col">
+                                                <h4>Author</h4>
+                                            </th>
+                                            <th scope="col">
+                                                <h4>Check Out</h4>
+                                            </th>
 
-                                        @foreach ($books as $book)
-                                    <tr>
-                                        <td>{{ $book ->title }}</td>
-                                        <td>{{ $book ->author }}</td>
-                                        <td><button type="submit" id="Available" class="btn btn-dark btn-md">Check Out</button></td>
+                                            @foreach ($books as $book)
+                                        <tr>
+                                            <td>{{ $book ->title }}</td>
+                                            <td>{{ $book ->author }}</td>
+                                            <td>
 
+                                            <form method="POST" action="/checkout">
+                                                @csrf
+                                                <input type="hidden" name="book_id" value="{{ $book->id }}" />
+                                                <input type="submit" name="checkout" value="checkout" />
+                                             </form>
+                                            </td>
                                         
-                                    </tr>
-                                    @endforeach
-                                </thead>
-                            </table>
+                                        </tr>
+                                        @endforeach
+                                    </thead>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
-                </form>
+                
             </div>
         </div>
         @endsection

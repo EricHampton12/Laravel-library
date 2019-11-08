@@ -94,8 +94,7 @@
 
                 <div class="links">
                     <a href="/books">Books</a> 
-                   <a href="">Profile</a>
-                     <a href="">Checkout</a>
+                     <a href="checkoutPage">Checkout</a>
                      <!-- <a href="https://blog.laravel.com">Blog</a> -->
                     <!-- <a href="https://nova.laravel.com">Nova</a> -->
                     <!-- <a href="https://forge.laravel.com">Forge</a> -->
@@ -110,7 +109,7 @@
             @endif
 
             @if(auth()->user()->hasRole('librarian'))
-            
+                <h3>Admin View</h3>
             
             @endif
 

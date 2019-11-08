@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
+use App\Checkout;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -39,6 +41,23 @@ class HomeController extends Controller
         
         // get books and send it to the blade
         return view('books', ['books' => $books]);
+    }
+
+    public function checkOut(Request $request)
+    {
+        $user_id = Auth::user()->id;
+        $bookInfo=($request->request->all());
+        checkOut::create([
+            'book_id' => $request["book_id"],
+            'user_id' => $user_id
+        ]);
+        // get the current user id, Auth::user()->id;
+        // create the checkout record
+        // query to get all of the books I have checked out
+        $books = checkOut::where('user_id', '=', $user_id);
+        
+        // get books and send it to the blade
+        return view('checkOut', ['books' => $books]);
     }
 
     public function profile()

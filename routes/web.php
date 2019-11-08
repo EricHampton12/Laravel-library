@@ -24,3 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/search', 'HomeController@search')->name('home');
 
 Route::get('/books', 'HomeController@listBooks')->name('home');
+
+Route::post('/checkout', 'HomeController@checkOut')->name('home');

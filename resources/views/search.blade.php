@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     
-                    <h3>Laravel Libury</h3>
+                    <h3>Lurvel Libury</h3>
                     <form class="form-inline">
                         <div class="form-group mx-sm-3 mb-2">
                             <label for="bookTitle" class="sr-only">Book Title</label>
@@ -17,7 +17,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary mb-2">Search</button>
                     </form>
-                    
+
                 </div>
             </div>
         </div>
